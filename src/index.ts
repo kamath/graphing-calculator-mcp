@@ -20,14 +20,14 @@ export default function createStatelessServer({
   // Add Desmos graphing calculator tool
   server.tool(
     "graph",
-    "Create an interactive function graph using Desmos API",
+    "Create an interactive function graph using Desmos API. ONLY USE THIS FOR GRAPHING 2D FUNCTIONS. DO NOT INPUT VARIABLE NAMES THAT ARE NOT X OR Y.",
     {
       functions: z
         .array(z.string())
         .min(1)
         .max(10)
         .describe(
-          "Array of mathematical functions to graph (e.g., ['y=x^2', 'y=sin(x)'])"
+          "Array of mathematical functions to graph as LaTeX (e.g., ['y=x^2', 'y=\\sin(x)'])"
         ),
       title: z.string().optional().describe("Title for the graph"),
       xMin: z.number().optional().describe("Minimum x value for the viewport"),
